@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><ion-img class="img-toolbar"
+      src="assets/duoc-uc-logo.webp"
+    ></ion-img></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo">
+  <div class="contenedor">
+
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <ion-input label="Correo electrónico" labelPlacement="floating" [(ngModel)]="mdl_usuario"></ion-input>
+    </ion-item>
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <ion-input type="password" label="Contraseña" labelPlacement="floating" [(ngModel)]="mdl_contrasena"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block ion-margin-top" (click)="navegar()">Ingresar</ion-button>
+
+    <ion-alert
+    [isOpen]="isAlertOpen"
+    header="Problemas para ingresar"
+    
+    message="usuario o contraseña inválida. Puedes recuperar tu cuenta en 'Olvidé mi contraseña'"
+    [buttons]="alertButtons"
+    (didDismiss)="setOpen(false)"
+  ></ion-alert>
+
+    <ion-item class="olvido" lines="none" style="text-align: center;">
+      <a routerLink="/restablecer">Olvidé mi contraseña</a>
+    </ion-item>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-text>© 2023 registrAPP</ion-text>
+  </ion-toolbar>
+</ion-footer>

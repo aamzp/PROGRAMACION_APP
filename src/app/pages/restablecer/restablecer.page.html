@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><ion-img class="img-toolbar"
+      src="assets/duoc-uc-logo.webp"
+    ></ion-img></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo">
+  <div class="contenedor">
+    <ion-text>Ingresa tu correo para restablecer tu contraseña</ion-text>
+    <ion-item class="fondo input ion-margin-top" lines="none" >
+      <ion-input label="Correo electrónico" labelPlacement="floating" [(ngModel)]="mdl_usuario"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block ion-margin-top" (click)="restablecer()">Restablecer Contraseña</ion-button>
+    <br>
+    <ion-text>Te enviaremos una contraseña provisional para que accedas a tu cuenta</ion-text>
+
+    <ion-alert
+    [isOpen]="isAlertOpen"
+    header="Problema con el correo electrónico"
+    
+    message="No existe el usuario con el correo indicado"
+    [buttons]="alertButtons"
+    (didDismiss)="setOpen(false)"
+  ></ion-alert>
+
+  <ion-alert
+  [isOpen]="isSuccessAlertOpen"
+  header="Contraseña Restablecida"
+  message="Hemos enviado una contraseña provisional a tu correo electrónico."
+  [buttons]="successAlertButtons"
+  (didDismiss)="onAcceptSuccess()"
+></ion-alert>
+
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-text>© 2023 registrAPP</ion-text>
+  </ion-toolbar>
+</ion-footer>
